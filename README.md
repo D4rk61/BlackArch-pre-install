@@ -70,6 +70,10 @@ function pre_install() {
             echo "El paquete $package no está instalado o no se pudo desinstalar. Saltando..."
         fi
     done
+}
+
+pre_install
+
 ```
 
 2. Solucionando errores de **keyring** y llaves
@@ -77,9 +81,10 @@ function pre_install() {
 Esto lo podemos seguir directamente de su pagina [oficial](https://blackarch.org/faq.html), pero para resumirlo podemos ejecutar los siguientes comandos
 
 ```shell
-https://blackarch.org/faq.html
-chmod +x strap.sh
-sudo ./strap.sh  # Importante ejecutarlo como sudo
+# Version: 0.0.2 no ejecutar esto:
+# https://blackarch.org/faq.html
+# chmod +x strap.sh
+# sudo ./strap.sh  # Importante ejecutarlo como sudo
 
 
 # Luego estos pasos puede que algunos de fallos o necesiten de reinicar antes la pc
@@ -108,6 +113,7 @@ sudo su                         # Volvernos sudo para este proceso tedioso
 pacman -Rsc kconfig
 pacman -Rsc jre-openjdk
 pacman -Rsc wireshark-qt wireshark-cli
+pacman -Rsc metasploit
 ```
 
 Si nos da un fallo de firmas aun, ejecutamos lo siguiente:
