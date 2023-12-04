@@ -88,8 +88,9 @@ Esto lo podemos seguir directamente de su pagina [oficial](https://blackarch.org
 
 
 # Luego estos pasos puede que algunos de fallos o necesiten de reinicar antes la pc
+# Version: 0.0.2 no ejecutar esto:
 
-reboot                           # No he comprobado que sea necesario pero me ha ayudado
+#reboot                           # No he comprobado que sea necesario pero me ha ayudado
 rm -rf /etc/pacman.d/gnupg       # Este comando si da algun fallo de "recurso ocupado" lo intentamos varias veces, si no lo saltamos
 sudo pacman-key --init
 sudo pacman-key --populate archlinux blackarch
@@ -119,7 +120,11 @@ pacman -Rsc metasploit
 Si nos da un fallo de firmas aun, ejecutamos lo siguiente:
 
 ```shell
-sudo pacman -Syy --noconfirm && sudo pacman-key --refresh-keys && sudo pacman-key --populate archlinux && sudo pacman-key --populate blackarch
+# Version: 0.0.2 no ejecutar esto:
+#sudo pacman -Syy --noconfirm && sudo pacman-key --refresh-keys && sudo pacman-key --populate archlinux && sudo pacman-key --populate blackarch
+
+# Version: 0.0.2 ejecutar esto:
+sudo pacman -S archlinux-keyring
 ```
 
 
@@ -134,4 +139,8 @@ ParallelDownloads = 20           # Esto sirve para descargas paralelas y por end
 ```
 
 
-Podremos ejecutar: `sudo pacman -Syu --noconfirm` para comprobar que todo este bien, asi podremos tener BlackArch linux instalado!
+Podremos ejecutar: `sudo pacman -Syu --noconfirm` para comprobar que todo este bien, asi podremos tener BlackArch linux instalado! Posterior a la 
+actualizacion usaremos: `reboot`
+
+**Advertencia:** Si al momento de reiniciar la pc, se "crashea" la pc, no funciona la pantalla, abrir una terminal, con: CTRL + ALT + F2 
+ejecutar: `sudo pacman -S linux` es por un fallo en un componente pero si no da eso al momento de reiniciar la pc, todo bien!
